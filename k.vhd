@@ -26,8 +26,8 @@ architecture easy of k is
     a0 <= k(127 downto 96); 
     b0 <= k(95 downto 64);
 
-    qr(0) <= k(63 downto 32) xor k(31 downto 0);
-    qr(1) <= k(63 downto 32);
-    qr(2) <= k(31 downto 0);
+    qr(1) <= k(63 downto 32) xor k(31 downto 0);
+    qr(2) <= k(63 downto 32);
+    qr(3) <= k(31 downto 0);
     f <= f3 & f2 & f1 & f0;
 end easy;

@@ -32,14 +32,14 @@ architecture easy of fk is
 
 
   begin
-    a0 <= a(7 downto 0);
-    a1 <= a(15 downto 8);
-    a2 <= a(23 downto 16);
-    a3 <= a(31 downto 24);
-    b0 <= b(7 downto 0);
-    b1 <= b(15 downto 8);
-    b2 <= b(23 downto 16);
-    b3 <= b(31 downto 24);
+    a3 <= a(7 downto 0);
+    a2 <= a(15 downto 8);
+    a1 <= a(23 downto 16);
+    a0 <= a(31 downto 24);
+    b3 <= b(7 downto 0);
+    b2 <= b(15 downto 8);
+    b1 <= b(23 downto 16);
+    b0 <= b(31 downto 24);
 
     u1_1 <= a0 xor a1;
     u1_2 <= (a2 xor a3) xor b0;
@@ -48,10 +48,10 @@ architecture easy of fk is
     u3_2 <= f1 xor b2;
     u4_2 <= f2 xor b3;
 
-U1: s1 port map (x1 => u1_1, x2 => u2_2, y => f1);
+U1: s1 port map (x1 => u1_1, x2 => u1_2, y => f1);
 U2: s0 port map (x1 => u2_1, x2 => u2_2, y => f2);
 U0: s0 port map (x1 => a0, x2 => u3_2, y => f0);
 U3: s1 port map (x1 => a3, x2 => u4_2, y => f3);
 
-    f <= f3 & f2 & f1 & f0;
+    f <= f0 & f1 & f2 & f3;
 end easy;
