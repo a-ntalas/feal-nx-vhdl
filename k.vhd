@@ -21,8 +21,6 @@ architecture easy of k is
   );
   end component;
 
-  -- type type_1Dx1D is array(0 to 2) of std_logic_vector(31 downto 0);
-  -- signal q_0 : type_1Dx1D;
   signal q_sel: natural range 0 to 2 := 0;
   
   signal a_reg, b_reg, d_reg, q, xor_1, xor_2, fk_out: std_logic_vector(31 downto 0);
@@ -70,3 +68,5 @@ U0: fk port map (a => a_reg , b => xor_2 , f => fk_out);
 -- add_force {/k/k} -radix hex {0123456789abcdef0123456789abcdef 0ns}
 -- add_force {/k/clk} -radix hex {0 0ns} {1 500000ps} -repeat_every 1000000ps
 -- add_force {/k/rst} -radix hex {1 0ns}
+-- run 1000 ns
+-- add_force {/k/rst} -radix hex {0 0ns}
